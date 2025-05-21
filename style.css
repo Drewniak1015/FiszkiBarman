@@ -1,0 +1,218 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Unica One", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(0, 0%, 0%);
+}
+ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(10px);
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  opacity: 1;
+}
+.nav {
+  width: 100%;
+  height: auto;
+  position: sticky;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.305);
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+svg {
+  width: 50px;
+  z-index: 100;
+  cursor: pointer;
+  align-self: flex-end;
+}
+#listaId {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-in-out;
+}
+#listaId.Visible {
+  max-height: 500px;
+}
+.none {
+  opacity: 0;
+  pointer-events: none;
+}
+.Visible {
+  opacity: 1;
+}
+a {
+  color: white;
+}
+ul li {
+  margin: 4px 0;
+}
+.flexbox {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  perspective: 1000px;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+h2 {
+  color: white;
+}
+h1:nth-of-type(1) {
+  color: #ff9900;
+  margin: 10px;
+}
+.close {
+  color: #e91e63;
+  padding: 10px 0;
+  cursor: pointer;
+}
+.close:hover {
+  color: hsl(340, 82%, 42%);
+}
+#WodkaSmakowa {
+  color: #ff9900;
+}
+#Jager {
+  color: #4caf50;
+}
+
+#Whisky {
+  color: #e91e63;
+}
+
+#Gin {
+  color: #f4a261;
+}
+
+#Absinthe {
+  color: #7e9cd9;
+}
+
+#KOKTAJLE {
+  color: #8d6e63;
+}
+
+#Wodka {
+  color: #2196f3;
+}
+
+#likiery {
+  color: #f48fb1;
+}
+
+#Sambuca {
+  color: #81d4fa;
+}
+
+#Tequila {
+  color: #a1887f;
+}
+
+#Rum {
+  color: #7b1fa2;
+}
+
+#Likiery {
+  color: #f06292;
+}
+#Zestawy {
+  color: brown;
+}
+.szoty {
+  color: #f1f1f1;
+}
+
+.SkaldnikiSpan {
+  color: #e53935;
+}
+
+.CechySpan {
+  color: #66bb6a;
+}
+
+.fiszka {
+  height: 10rem;
+  width: 16rem;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  border-radius: 5px;
+  border: 1px solid rgb(187, 187, 187);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 5px;
+  background-color: black;
+}
+
+.fiszka:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+.fiszka.flipped {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: black;
+  border: 1px solid rgb(187, 187, 187);
+}
+@media only screen and (max-width: 530px) {
+  .fiszka {
+    height: 16rem;
+    width: 10rem;
+  }
+}
+.back {
+  transform: rotateY(180deg);
+}
+
+.back p {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+p {
+  margin: 0 20px;
+  color: white;
+}
+
+span {
+  text-decoration: underline;
+}
