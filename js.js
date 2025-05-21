@@ -719,72 +719,69 @@ const Sambuca = [
 ];
 const BarId = document.getElementById("bar");
 const listaId = document.getElementById("listaId");
-const closeId = document.getElementById("close");
+const closeId = document.getElementById("closeId");
+
 BarId.addEventListener("click", () => {
   listaId.classList.toggle("Visible");
   BarId.classList.toggle("none");
 });
+
 closeId.addEventListener("click", () => {
   BarId.classList.toggle("none");
   listaId.classList.toggle("Visible");
 });
-const WodkaSmakowaDiv = document.getElementById("WodkaSmakowaDiv");
-const JagerDiv = document.getElementById("JagerDiv");
-const WhiskyDiv = document.getElementById("WhiskyDiv");
-const GinDiv = document.getElementById("GinDiv");
-const AbsintheDiv = document.getElementById("AbsintheDiv");
-const ZestawyDiv = document.getElementById("ZestawyDiv");
-const SzotyDiv = document.getElementById("SzotyDiv");
-const KOKTAJLEDiv = document.getElementById("KOKTAJLEDiv");
-const TequilaDiv = document.getElementById("TequilaDiv");
-const RumDiv = document.getElementById("RumDiv");
-const SambucaDiv = document.getElementById("SambucaDiv");
-const LikieryDiv = document.getElementById("LikieryDiv");
 
-function MapWodkaSmakowa(tablica, DivElement) {
-  tablica.map((element) => {
-    const Fiszka = document.createElement("div");
-    const Front = document.createElement("div");
-    const Back = document.createElement("div");
+function MapWodkaSmakowa(tablica, divElement) {
+  tablica.forEach((element) => {
+    const fiszka = document.createElement("div");
+    fiszka.classList.add("fiszka");
 
-    Front.classList.add("front");
-    Back.classList.add("back");
+    const front = document.createElement("div");
+    front.classList.add("front");
+    const title = document.createElement("h2");
+    title.innerText = element.nazwa;
+    front.appendChild(title);
 
-    const Title = document.createElement("h2");
-    Title.innerText = element.nazwa;
-    Front.appendChild(Title);
-
-    const Skład = document.createElement("p");
-    Skład.innerHTML = `<span class='SkaldnikiSpan'>Składniki:</span><br>${element.skladniki}`;
-
-    const Cechy = document.createElement("p");
-    Cechy.innerHTML = `<span class='CechySpan'>Cechy:</span><br>${element.cechy.join(
+    const back = document.createElement("div");
+    back.classList.add("back");
+    const sklad = document.createElement("p");
+    sklad.innerHTML = `<span class='SkaldnikiSpan'>Składniki:</span><br>${element.skladniki}`;
+    const cechy = document.createElement("p");
+    cechy.innerHTML = `<span class='CechySpan'>Cechy:</span><br>${element.cechy.join(
       ", "
     )}`;
+    back.appendChild(sklad);
+    back.appendChild(cechy);
 
-    Back.appendChild(Skład);
-    Back.appendChild(Cechy);
+    fiszka.appendChild(front);
+    fiszka.appendChild(back);
 
-    Fiszka.classList.add("fiszka");
-    Fiszka.appendChild(Front);
-    Fiszka.appendChild(Back);
-
-    Fiszka.addEventListener("click", function () {
-      this.classList.toggle("flipped");
+    fiszka.addEventListener("click", () => {
+      fiszka.classList.toggle("flipped");
     });
 
-    DivElement.append(Fiszka);
+    divElement.appendChild(fiszka);
   });
 }
-MapWodkaSmakowa(WodkaSmakowa, WodkaSmakowaDiv);
-MapWodkaSmakowa(Jager, JagerDiv);
-MapWodkaSmakowa(Whisky, WhiskyDiv);
-MapWodkaSmakowa(Gin, GinDiv);
-MapWodkaSmakowa(Absinthe, AbsintheDiv);
-MapWodkaSmakowa(Zestawy, ZestawyDiv);
-MapWodkaSmakowa(Szoty, SzotyDiv);
-MapWodkaSmakowa(Koktajle, KOKTAJLEDiv);
-MapWodkaSmakowa(Tequila, TequilaDiv);
-MapWodkaSmakowa(Rum, RumDiv);
-MapWodkaSmakowa(Sambuca, SambucaDiv);
-MapWodkaSmakowa(Likery, LikieryDiv);
+
+const dataMap = [
+  { data: WodkaSmakowa, elementId: "WodkaSmakowaDiv" },
+  { data: Jager, elementId: "JagerDiv" },
+  { data: Whisky, elementId: "WhiskyDiv" },
+  { data: Gin, elementId: "GinDiv" },
+  { data: Absinthe, elementId: "AbsintheDiv" },
+  { data: Zestawy, elementId: "ZestawyDiv" },
+  { data: Szoty, elementId: "SzotyDiv" },
+  { data: Koktajle, elementId: "KOKTAJLEDiv" },
+  { data: Tequila, elementId: "TequilaDiv" },
+  { data: Rum, elementId: "RumDiv" },
+  { data: Sambuca, elementId: "SambucaDiv" },
+  { data: Likery, elementId: "LikieryDiv" },
+];
+
+dataMap.forEach(({ data, elementId }) => {
+  const divElement = document.getElementById(elementId);
+  if (divElement && data) {
+    MapWodkaSmakowa(data, divElement);
+  }
+});
