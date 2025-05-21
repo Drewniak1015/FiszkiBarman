@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: "Unica One", sans-serif;
   scroll-behavior: smooth;
+  scroll-margin-top: 100px;
 }
 
 body {
