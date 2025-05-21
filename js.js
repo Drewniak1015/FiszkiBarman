@@ -741,7 +741,7 @@ const RumDiv = document.getElementById("RumDiv");
 const SambucaDiv = document.getElementById("SambucaDiv");
 const LikieryDiv = document.getElementById("LikieryDiv");
 
-function MapWodkaSmakowa(tablica, div) {
+function MapWodkaSmakowa(tablica, DivElement) {
   tablica.map((element) => {
     const Fiszka = document.createElement("div");
     const Front = document.createElement("div");
@@ -773,7 +773,7 @@ function MapWodkaSmakowa(tablica, div) {
       this.classList.toggle("flipped");
     });
 
-    div.append(Fiszka);
+    DivElement.append(Fiszka);
   });
 }
 MapWodkaSmakowa(WodkaSmakowa, WodkaSmakowaDiv);
