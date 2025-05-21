@@ -13,7 +13,10 @@ ul {
   position: absolute;
   top: 0;
   left: 0;
-  backdrop-filter: blur(10px);
+  height: 400px;
+  padding-bottom: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(15px);
   z-index: 1;
   width: 100%;
   text-align: center;
@@ -41,9 +44,6 @@ svg {
 #listaId {
   max-height: 0;
   overflow: hidden;
-  height: 400px;
-  background-color: rgba(0, 0, 0, 0.251);
-  backdrop-filter: 10px;
   transition: max-height 0.2s ease-in-out;
 }
 #listaId.Visible {
@@ -213,6 +213,7 @@ h1:nth-of-type(1) {
 
 p {
   margin: 0 20px;
+  font-size: 1.75rem;
   color: white;
 }
 
